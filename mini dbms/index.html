@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Library System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>📚 Digital Library System</h1>
+
+  <div class="tabs">
+    <button onclick="showSlide('books')" id="tabBooks" class="active">📚 Books</button>
+    <button onclick="showSlide('notes')" id="tabNotes">📝 Notes</button>
+  </div>
+
+  <div class="container">
+    <div class="slide" id="booksSlide">
+      <div class="card">
+        <h2>Add Book</h2>
+        <input type="text" id="bookTitle" placeholder="Book Title" />
+        <input type="text" id="bookAuthor" placeholder="Author" />
+        <button onclick="addBook()">Add Book</button>
+      </div>
+      <div class="card">
+        <h2>Books</h2>
+        <input type="text" id="bookSearch" placeholder="Search Books..." oninput="filterBooks()"/>
+        <ul id="bookList"></ul>
+      </div>
+    </div>
+
+    <div class="slide" id="notesSlide" style="display:none;">
+      <div class="card">
+        <h2>Add Note</h2>
+        <input type="text" id="noteTitle" placeholder="Note Title" />
+        <textarea id="noteContent" placeholder="Note Content" rows="3"></textarea>
+        <button onclick="addNote()">Add Note</button>
+      </div>
+      <div class="card">
+        <h2>Notes</h2>
+        <input type="text" id="noteSearch" placeholder="Search Notes..." oninput="filterNotes()"/>
+        <ul id="noteList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
